@@ -241,6 +241,7 @@ class FakeRil extends BaseCommands {
     public void setupDataCall(
             int accessNetworkType,
             DataProfile dataProfile,
+            boolean isRoaming,
             boolean allowRoaming,
             int reason,
             LinkProperties linkProperties,
@@ -474,10 +475,11 @@ class FakeRil extends BaseCommands {
     public void getVoiceRadioTechnology(Message result) {}
 
     @Override
-    public void setInitialAttachApn(DataProfile dataProfile, Message result) {}
+    public void setInitialAttachApn(
+            DataProfile dataProfile, boolean isRoaming, Message result) {}
 
     @Override
-    public void setDataProfile(DataProfile[] dps, Message result) {}
+    public void setDataProfile(DataProfile[] dps, boolean isRoaming, Message result) {}
 
     @Override
     public void iccOpenLogicalChannel(String aid, int p2, Message response) {}
@@ -558,4 +560,34 @@ class FakeRil extends BaseCommands {
 
     @Override
     public void cancelHandover(Message result, int callId) {}
+
+    @Override
+    public void getPDPContextList(Message result) {}
+
+    @Override
+    public void getIMEI(Message result) {}
+
+    @Override
+    public void getIMEISV(Message result) {}
+
+    @Override
+    public void getLastPdpFailCause(Message result) {}
+
+    @Override
+    public void getLastDataCallFailCause(Message result) {}
+
+    @Override
+    public void resetRadio(Message result) {}
+
+    @Override
+    public void invokeOemRilRequestRaw(byte[] data, Message response) {}
+
+    @Override
+    public void invokeOemRilRequestStrings(String[] strings, Message response) {}
+
+    @Override
+    public void getIccSlotsStatus(Message result) {}
+
+    @Override
+    public void setLogicalToPhysicalSlotMapping(int[] physicalSlots, Message result) {}
 }
